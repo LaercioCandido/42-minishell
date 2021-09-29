@@ -20,18 +20,18 @@ static void	loop(void)
 
 	while (1)
 	{
+		prompt = "";
 		if (getcwd(cwd, sizeof(cwd)) != NULL)
-		{
 			prompt = ft_strjoin(cwd, "$ ");
-			command = readline(prompt);
-		}
+		command = readline(prompt);
+		free(prompt);
 		if (!strcmp("exit", command))
 		{
-			free(prompt);
+			free(command);
 			break;
 		}
 		//printf("Current working dir: %s\n", prompt);
-		free(prompt);
+		free(command);
 	}
 }
 
