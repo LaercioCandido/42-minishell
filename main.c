@@ -6,11 +6,20 @@
 /*   By: lcandido <lcandido@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/28 21:10:53 by lcandido          #+#    #+#             */
-/*   Updated: 2021/09/29 18:13:09 by lcandido         ###   ########.fr       */
+/*   Updated: 2021/09/29 19:37:14 by lcandido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "minishell.h"
+
+void	pwd(void)
+{
+	char	cwd[2048];
+	char	*buf;
+
+	buf = getcwd(cwd, sizeof(cwd));
+	printf("%s\n", buf);
+}
 
 static void	loop(void)
 {
@@ -30,7 +39,8 @@ static void	loop(void)
 			free(command);
 			break;
 		}
-		//printf("Current working dir: %s\n", prompt);
+		if (!strcmp("pwd", command))
+			pwd();
 		free(command);
 	}
 }
