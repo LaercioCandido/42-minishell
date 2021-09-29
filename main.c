@@ -6,7 +6,7 @@
 /*   By: lcandido <lcandido@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/28 21:10:53 by lcandido          #+#    #+#             */
-/*   Updated: 2021/09/29 19:37:14 by lcandido         ###   ########.fr       */
+/*   Updated: 2021/09/29 20:07:44 by lcandido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,12 @@ void	pwd(void)
 	char	cwd[2048];
 	char	*buf;
 
+	buf = NULL;
 	buf = getcwd(cwd, sizeof(cwd));
-	printf("%s\n", buf);
+	if (buf != NULL)
+		printf("%s\n", buf);
+	else
+		printf("ERROR: PWD\n");
 }
 
 static void	loop(void)
@@ -29,7 +33,7 @@ static void	loop(void)
 
 	while (1)
 	{
-		prompt = "";
+		//prompt = "";
 		if (getcwd(cwd, sizeof(cwd)) != NULL)
 			prompt = ft_strjoin(cwd, "$ ");
 		command = readline(prompt);
