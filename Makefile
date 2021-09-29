@@ -6,7 +6,7 @@
 #    By: lcandido <lcandido@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/28 21:10:53 by lcandido          #+#    #+#              #
-#    Updated: 2021/09/29 18:13:05 by lcandido         ###   ########.fr        #
+#    Updated: 2021/09/29 19:46:49 by lcandido         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,7 @@ $(NAME): $(OBJ)
 git:
 	@git add .
 	@git commit -m "$m"
-	@git push
+	@git push origin laercio
 #make git m="blablabla"
 
 clean:
