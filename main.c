@@ -6,7 +6,7 @@
 /*   By: lcandido <lcandido@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/28 21:10:53 by lcandido          #+#    #+#             */
-/*   Updated: 2021/09/30 23:23:58 by lcandido         ###   ########.fr       */
+/*   Updated: 2021/09/30 23:40:10 by lcandido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,16 @@ void	echo(char **command)
 
 	i = 1;
 	has_n = 0;
-	if (command[1] && ft_strcmp(command[1], "-n") == 0)
+	//if (command[1] && ft_strcmp.......)
+	if (!ft_strcmp(command[1], "-n"))
 	{
 		has_n = 1;
 		i = 2;
 	}
-	while (command && command[i])
-	{
-		printf("%s ", command[i]);
-		i++;
-	}
-	if (has_n == 0)
+	//if (command && command[i])
+	while (command[i])
+		printf("%s ", command[i++]);
+	if (!has_n)
 		printf("\n");
 }
 
@@ -64,10 +63,7 @@ void	free_command(char **command)
 
 	i = 0;
 	while (command[i])
-	{
-		free(command[i]);
-		i++;
-	}
+		free(command[i++]);
 	free(command);
 }
 
